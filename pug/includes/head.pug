@@ -1,0 +1,15 @@
+head
+    meta(charset='UTF-8')
+    meta(http-equiv="expires", content="43200")
+    if pagesubtitle
+        title= pagetitle + ' - ' + pagesubtitle
+    else
+        title= pagetitle
+    if pagedescription
+        meta(name="description" content=pagedescription)
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='author', content=pageauthor)
+    link(rel='stylesheet', href='/css/main.css')
+    link(href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Work+Sans:300" rel="stylesheet")
+
+// head end

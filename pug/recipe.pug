@@ -1,0 +1,40 @@
+- var pagetitle = "Cupcakes Deconstructed"
+- var pagesubtitle = "Das eBook"
+- var pageauthor = "Myriam Frisano"
+- var pagedescription = "Die Website für das Cupcake Projekt von Myriam Frisano. Rezepte und ein interaktives eBook erwarten dich."
+
+block vars
+    - var title = "default title"
+    - var id = "default"
+    - var subtitle = "subtitle"
+doctype html
+html(lang="de")
+    include includes/head.pug
+
+    body(class=id)
+        header.recipe-head
+            div
+                a(href="index.html") #[i.fa.fa-long-arrow-left] Home
+                img(src="img/"+id+"-main.jpg")
+            div
+                .title
+                    h1= title
+                    h2= subtitle
+        .content
+            .container
+                .teaser
+                    block teaser
+                        span teaser
+                .recipe-wrapper
+                    .ingredients
+                        h3 Zutaten
+                        block ingredients
+                            span Zutaten
+                    .directions
+                        block directions
+                            span Anleitung
+        .more
+            include includes/more.pug
+        include includes/footer.pug
+    // body end
+// html end

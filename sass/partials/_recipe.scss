@@ -1,0 +1,135 @@
+// Recipe Page
+.recipe-head{
+    @include center();
+    @include flexbox(row, wrap, space-between, stretch);
+    width: 80%;
+    top: 5vh;
+    box-sizing: border-box;
+    background: white;
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+        top: 0;
+    }
+    a{
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        color: white;
+    }
+    div{
+        width: 50%;
+        background: $soft;
+        position: relative;
+
+        @media screen and (max-width: $sidebar-break) {
+            width: 100%;
+
+            .title{
+                padding: 80px 30px;
+            }
+        }
+    }
+    div{
+        @include flexbox(row, wrap, center, center);
+    }
+
+    .title{
+        width: 100%;
+        text-align: center;
+        h1{
+            line-height: 1.2;
+            position: relative;
+            padding-bottom: 30px;
+
+            &:after{
+                content: '';
+                width: 100px;
+                height: 2px;
+                background: $brown;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        h2{
+            font-weight: normal;
+            font-style: italic;
+            line-height: 1.2;
+            font-size: 1.5em;
+        }
+    }
+}
+
+.recipe-wrapper{
+    width: 100%;
+    @include flexbox(row, wrap, space-between, flex-start);
+    .teaser{
+        width: 100%;
+    }
+    .directions{
+        width: 70%;
+    }
+    .ingredients{
+        width: 30%;
+        font-family: $serif;
+        font-size: .9em;
+        transform: translate3d(0, 0, 0);
+        p, h4{
+            border-bottom: 1px solid $soft;
+        }
+    }
+    @media screen and (max-width: $sidebar-break) {
+        .directions,
+        .ingredients{
+            width: 100%;
+        }
+        .is_stuck{
+            position: relative !important;
+        }
+    }
+    > div{
+        padding: 0 20px 50px;
+    }
+}
+
+.teaser{
+    margin-bottom: 20px;
+}
+
+.step{
+    border-top: 1px solid $soft;
+    padding-left: 40px;
+    position: relative;
+    font-size: .9em;
+    &:before {
+        counter-increment: step;
+        content: counter(step);
+        color: rgba($brown, .5);
+        font-family: $serif;
+        position: absolute;
+        font-size: 2em;
+        left: 0;
+        top: -20px;
+    }
+}
+
+.more{
+    @include center();
+    width: 80%;
+    background: $soft;
+    margin-bottom: 5vh;
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+$ids: "plain", "sin", "drunk", "caramel", "pb", "poppy";
+@each $id in $ids {
+    .#{$id} {
+        ##{$id}{
+            display: none;
+        }
+    }
+}
